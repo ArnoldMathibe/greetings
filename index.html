@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+    <link rel="stylesheet" href="greet.css">
+</head>
+<body>
+        <h2>Greeting Exercise</h2>
+        <div class="container">
+        <form action="">
+        <div class="display">
+            <div class="input">
+            <label for="name" class="error-message">Please Enter Your Name</label>
+            <input type="text" name=""  value="" placeholder="Enter Your name" class="name">
+            </div>
+            <div class="greetCount"></div>
+        </div>
+        <div>
+                <input type="radio" name="langRadio" class="langRadioEng" value="english">
+                <span class="label-body">English</span>
+        
+                <input type="radio" name="langRadio" class="langRadioAfr" value="afrikaans">
+                <span class="label-body">Afrikaans</span>
+            
+                <input type="radio" name="langRadio" class="langRadioXhosa" value="isiXhosa">
+                <span class="label-body">IsiXhosa</span>
+            
+            <div class="filter">
+                <label for="lang" class="lang-error">Please Select One Language</label>
+            </div>
+        </div>
+        <div>
+            <button class="greetBtn" type="button" name="button">Greet Me</button>
+            <button class="clearBtn" type="button" name="button">Clear</button>
+        </div>
+    </form>
+    </div>
+    <div>
+        <div class="displayName"></div>
+        
+    </div>
+</body>
+<script src="greet.js"></script>
+<script src="greeting.js"></script>
+</html>
