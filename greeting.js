@@ -63,19 +63,21 @@ greetBtnElem.addEventListener("click", (e) => {
         displayNameElem.innerHTML = greetings.isiXhosaGreeting(myName);
         } 
 
-
         //  if (!listName.includes(myName)) {
         //      alert("Name Already Exists")
         //      listName.push(myName);
         //  }
 
+        if (listName.indexOf(myName) < 0) {
+            listName.push(myName);
+        }
         // if (localStorage.getItem('list') === null) {
         //     listName = [];
         // }else{
         //     listName = JSON.parse(localStorage.getItem('list'));
         // }
 
-        listName.push(myName);
+        //listName.push(myName);
         localStorage.setItem("list", JSON.stringify(listName));
         localStorage.getItem("list", JSON.stringify(listName));
         greetCountElem.innerHTML = localStorage.getItem("list") === null ? 0 
@@ -85,6 +87,7 @@ greetBtnElem.addEventListener("click", (e) => {
 
 clearBtnElem.addEventListener("click", (e) => {
     e.preventDefault();
+    displayNameElem.innerHTML = "";
     localStorage.clear("list", JSON.stringify(listName));
     greetCountElem.innerHTML = localStorage.getItem("list") === null ? 0 
         : JSON.parse(localStorage.getItem("list")).length;
