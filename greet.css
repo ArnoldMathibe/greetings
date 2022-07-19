@@ -44,7 +44,7 @@ body{
 }
 .lang-error{
     color: red;
-    margin-top: 1.2em;
+    margin-bottom: 1.2em;
     display: none;
 }
 .input{

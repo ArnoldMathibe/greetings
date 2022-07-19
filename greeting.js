@@ -51,7 +51,7 @@ greetBtnElem.addEventListener("click", (e) => {
         setTimeout(timeError, 5000)
         throw new Error("Please Enter A Name");
     }else if (/[0-9]/.test(myName)) {
-        errorMessage.innerHTML = "Please Enter The Name With Only Letters";
+        errorMessage.style.display = "block";
         setTimeout(timeError, 5000);
         throw new Error("Please Enter The Name With Only Letters");
     }
