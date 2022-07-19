@@ -35,12 +35,17 @@ body{
 .error-message{
     color: red;
     margin-bottom: 1em;
-    display: block;
+    display: none;
+}
+.alreadyGreeted{
+    color: red;
+    margin-bottom: 1em;
+    display: none;
 }
 .lang-error{
     color: red;
     margin-top: 1.2em;
-    display: block;
+    display: none;
 }
 .input{
     display: flex;

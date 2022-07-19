@@ -11,6 +11,7 @@ const greetCountElem = document.querySelector(".greetCount");
 
 const errorMessage = document.querySelector(".error-message");
 const langError = document.querySelector(".lang-error");
+const alreadyGreeted = document.querySelector(".alreadyGreeted");
 
 let greetings = Greeting();
 
@@ -29,28 +30,41 @@ langRadioAfr.addEventListener("click", () => {
 langRadioXhosa.addEventListener("click", () => {
     checkedRadio = true;
 });
-
+function timeError(){
+    errorMessage.setAttribute("style", "display: none");
+    langError.setAttribute("style", "display: none");
+    alreadyGreeted.setAttribute("style", "display: none");
+}
 greetBtnElem.addEventListener("click", (e) => {
     e.preventDefault();
     var myName = nameElem.value;
 
     var checkedRadioBtn = document.querySelector("input[name='langRadio']:checked").value;
+    if (listName.indexOf(myName) >= 0) {
+        alreadyGreeted.style.display = "block";
+        setTimeout(timeError, 5000);
+        throw new Error("This Name Has Already Been Greeted");
+    }
 
     if (myName === "" || myName === undefined) {
         errorMessage.style.display = "block";
+        setTimeout(timeError, 5000)
         throw new Error("Please Enter A Name");
     }else if (/[0-9]/.test(myName)) {
         errorMessage.innerHTML = "Please Enter The Name With Only Letters";
+        setTimeout(timeError, 5000);
         throw new Error("Please Enter The Name With Only Letters");
     }
 
     if (checkedRadio === false) {
         langError.style.display = "block";
+        setTimeout(timeError, 5000);
         throw new Error("Please Select Greeting Language");
     }
 
     errorMessage.style.display = "none";
     langError.style.display = "none";
+    alreadyGreeted.style.display = "none";
 
     if(checkedRadioBtn === 'english'){
         displayNameElem.innerHTML = greetings.englishGreeting(myName);
